@@ -13,3 +13,20 @@
   height: 100px;
   border-radius: 50%;
 }
+.selected-bot-container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.selected-bot{
+  width: 30%;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  text-align: center;
+  margin: 10px;
+}
