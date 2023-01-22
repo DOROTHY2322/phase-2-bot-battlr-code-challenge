@@ -6,10 +6,11 @@ const BotCollection = () => {
     const [bots, setBots] = useState([]);
     const [selectedBots, setSelectedBots] = useState([]);
 
-   const handleBotClick = (bot) => {
-    if(!selectedBots.find(b => b.id === bot.id)){
-        setSelectedBots([...selectedBots, bot])
-    }}
+    const handleAddBot = (bot) => {
+        if(!selectedBots.find(b => b.id === bot.id)){
+            setSelectedBots([...selectedBots, bot])
+        }
+    }
     const handleDelete = (botId) => {
         setSelectedBots(selectedBots.filter(b => b.id !== botId));
         fetch(`https://json-server-vercel-34ln.vercel.app/api/bots/${botId}`, {
@@ -30,7 +31,7 @@ console.log(bots)
         <div>
             <h1>Bot Collection</h1>
             {bots.map((bot) => (
-                <div key={bot.id} className="bot" onClick={() => handleBotClick(bot)}>
+                <div key={bot.id} className="bot" onClick={() => handleAddBot(bot)}>
                    <img src={bot.avatar_url} className="img-fluid rounded float-start" alt={bot.name}/>
                     <h2>{bot.name}</h2>
                     <p>Health: {bot.health}</p>
@@ -38,6 +39,7 @@ console.log(bots)
                     <p>Armor: {bot.armor}</p>
                     <p>Class: {bot.bot_class}</p>
                     <p>Catchphrase: {bot.catchphrase}</p>
+                    <YourBotArmy selectedBots={selectedBots} />
                     <button onClick={() => handleDelete(bot.id)}>x</button>
                     
                 </div>
