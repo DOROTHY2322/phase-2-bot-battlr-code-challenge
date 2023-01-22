@@ -15,7 +15,7 @@ const BotCollection = () => {
         fetch(`https://json-server-vercel-34ln.vercel.app/api/bots/${botId}`, {
             method: 'DELETE'
         })
-        .then(response => response.json())
+        
         .then(data => console.log(data))
         .catch(error => console.log(error))
     }

@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 
+
 function YourBotArmy() {
-    const [selectedBots, setSelectedBots] = useState([]);
-
-   
-
-    // JSX to render the selected bots
+    const [selectedBots] = useState([]);  
     return (
         <div>
+           
             {selectedBots.map((bot) => (
                 <div key={bot.id} className="bot">
                     <img src={bot.avatar_url} className="img-fluid rounded float-start" alt={bot.name}/>
