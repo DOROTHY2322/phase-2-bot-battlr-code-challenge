@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div>
-        <h2 className='navbar navbar-expand-lg bg-body-dark'>ROBOT ARMY</h2>
+        <h2 className="navbar bg-dark navbar-brand text-react text-light nav-link active text-light">ROBOT ARMY</h2>
         <BotCollection selectedBots={selectedBots} setSelectedBots={setSelectedBots}/>
         <YourBotArmy selectedBots={selectedBots} /> 
     </div>

@@ -33,3 +33,15 @@
   text-align: center;
   margin: 10px;
 }
+.bot-card.warrior {
+  background-color: #FBB13A;
+}
+.bot-card.mage {
+  background-color: #7B68EE;
+}
+.bot-card.rogue {
+  background-color: #8B0000;
+}
+h2{
+text-align: center;
+}

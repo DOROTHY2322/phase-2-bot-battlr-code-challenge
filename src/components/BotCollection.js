@@ -33,22 +33,23 @@ const BotCollection = () => {
         <div className="container">
           <h1 className="text-center">Bot Collection</h1>
           <div className="row">
-          {bots.map((bot, index) => (
-              <div key={bot.id} className={`col-3 p-1 ${index !== 0 && (index+1) % 3 === 0 ? 'clearfix' : ''}`}>
-                  <div className="card text-center overflow-hidden">
-                      <img src={bot.avatar_url} className="img-fluid rounded float-start card-img-top" alt={bot.name}/>
-                      <div className="card-body">
-                      <h2>{bot.name}</h2>
-                      <p>Health: {bot.health}</p>
-                      <p>Damage: {bot.damage}</p>
-                      <p>Armor: {bot.armor}</p>
-                      <p>Class: {bot.bot_class}</p>
-                      <p>Catchphrase: {bot.catchphrase}</p>
-                      <button className="btn btn-danger" onClick={() => handleDelete(bot.id)}>x</button>
-                      </div>
-                  </div>
-              </div>
-          ))}
+          {bots.map((bot) => (
+  <div key={bot.id} className={`col-3 p-1 bot-card ${bot.bot_class.toLowerCase()}`} onClick={() => handleAddBot(bot)}>
+    <div className="card text-center overflow-hidden">
+        <img src={bot.avatar_url} className="img-fluid rounded float-start card-img-top" alt={bot.name}/>
+        <div className="card-body">
+        <h2>{bot.name}</h2>
+        <p>Health: {bot.health}</p>
+        <p>Damage: {bot.damage}</p>
+        <p>Armor: {bot.armor}</p>
+        <p>Class: {bot.bot_class}</p>
+        <p>Catchphrase: {bot.catchphrase}</p>
+        <button className="btn btn-danger" onClick={() => handleDelete(bot.id)}>x</button>
+        </div>
+    </div>
+  </div>
+))}
+
           </div>
           <YourBotArmy selectedBots={selectedBots} />
         </div>
