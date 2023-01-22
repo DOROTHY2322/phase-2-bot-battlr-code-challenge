@@ -32,9 +32,11 @@ const BotCollection = () => {
     return (
         <div>
             <h1>Bot Collection</h1>
+            <div className="card col-3 p-1 container px-4 text-center container overflow-hidden text-center">
             {bots.map((bot) => (
                 <div key={bot.id} className="bot" onClick={() => handleAddBot(bot)}>
-                    <img src={bot.avatar_url} className="img-fluid rounded float-start" alt={bot.name}/>
+                    <img src={bot.avatar_url} className="img-fluid rounded float-start card-img-top" alt={bot.name}/>
+                    <div className="card-body">
                     <h2>{bot.name}</h2>
                     <p>Health: {bot.health}</p>
                     <p>Damage: {bot.damage}</p>
@@ -42,12 +44,16 @@ const BotCollection = () => {
                     <p>Class: {bot.bot_class}</p>
                     <p>Catchphrase: {bot.catchphrase}</p>
 
-                    <button onClick={() => handleDelete(bot.id)}>x</button>
+                    <button className="btn btn-danger" onClick={() => handleDelete(bot.id)}>x</button>
 
+                    </div>
+                    
                 </div>
             ))}
             <YourBotArmy selectedBots={selectedBots} />
         </div>
+            </div>
+            
     )
             }
 export default BotCollection;
