@@ -23,7 +23,7 @@ const YourBotArmy = (props) => {
               <p>Armor: {bot.armor}</p>
               <p>Class: {bot.bot_class}</p>
               <p>Catchphrase: {bot.catchphrase}</p>
-              <YourBotArmy selectedBots={selectedBots} />
+          
 
             </div>
           ))
