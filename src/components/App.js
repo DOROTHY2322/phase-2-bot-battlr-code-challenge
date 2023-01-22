@@ -11,9 +11,10 @@ function App() {
     <div>
         <h2 className="navbar bg-dark navbar-brand text-react text-light nav-link active text-light">ROBOT ARMY</h2>
         <BotCollection selectedBots={selectedBots} setSelectedBots={setSelectedBots}/>
-        <YourBotArmy selectedBots={selectedBots} /> 
+        <YourBotArmy selectedBots={selectedBots} setSelectedBots={setSelectedBots}/> 
     </div>
   );
 }
+
 
 export default App;
