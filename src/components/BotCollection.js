@@ -18,9 +18,7 @@ const BotCollection = () => {
         fetch(`https://json-server-vercel-34ln.vercel.app/api/bots/${botId}`, {
             method: 'DELETE'
         })
-
-        .then(data => console.log(data))
-        .catch(error => console.log(error))
+        .then(data => data.json())
     }
 
     useEffect(() => {
@@ -30,7 +28,11 @@ const BotCollection = () => {
     }, []); 
 
     return (
+        <>
+    <YourBotArmy selectedBots={selectedBots}/>
         <div className="container">
+        
+        <div style={{marginTop:"500px"}}>
           <h1 className="text-center">Bot Collection</h1>
           <div className="row">
           {bots.map((bot) => (
@@ -51,8 +53,9 @@ const BotCollection = () => {
 ))}
 
           </div>
-          <YourBotArmy selectedBots={selectedBots} />
+          </div>
         </div>
+        </>
       )
             }
 export default BotCollection;
