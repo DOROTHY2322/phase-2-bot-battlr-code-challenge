@@ -14,6 +14,7 @@ const BotCollection = () => {
     }
     
     const handleDelete = (botId) => {
+        setBots(bots.filter(b => b.id !== botId));
         setSelectedBots(selectedBots.filter(b => b.id !== botId));
         fetch(`https://json-server-vercel-34ln.vercel.app/api/bots/${botId}`, {
             method: 'DELETE'
@@ -29,10 +30,12 @@ const BotCollection = () => {
 
     return (
         <>
-    <YourBotArmy selectedBots={selectedBots}/>
+    <YourBotArmy selectedBots={selectedBots}
+    setSelectedBots={setSelectedBots}
+    />
         <div className="container">
         
-        <div style={{marginTop:"500px"}}>
+        <div style={{marginTop:"100px"}}>
           <h1 className="text-center">Bot Collection</h1>
           <div className="row">
           {bots.map((bot) => (
@@ -46,7 +49,10 @@ const BotCollection = () => {
         <p>Armor: {bot.armor}</p>
         <p>Class: {bot.bot_class}</p>
         <p>Catchphrase: {bot.catchphrase}</p>
-        <button className="btn btn-danger" onClick={() => handleDelete(bot.id)}>x</button>
+        <button className="btn btn-danger" onClick={(e) => {
+            e.stopPropagation()
+            handleDelete(bot.id)
+        }}>x</button>
         </div>
     </div>
   </div>
